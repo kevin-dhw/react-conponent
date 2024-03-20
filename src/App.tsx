@@ -3,6 +3,7 @@ import Calendar from "./views/Calendar/calendar";
 import MiniCalendar from "./views/MiniCalendar/miniCalendar";
 import MiniCalendar2 from "./views/MiniCalendar/miniCalendar2";
 import Test from "./views/test";
+import "./App.css";
 
 function App() {
   return (

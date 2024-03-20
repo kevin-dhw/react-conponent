@@ -1,17 +1,20 @@
 import React from "react";
 export type IconProps = React.PropsWithChildren<{
   num?: number;
+  str?: string;
 }>;
 
-const Icon: React.FC<IconProps> = (props) => {
-  console.log(props);
+const Icon = (props: IconProps) => {
+  const { num } = props;
+  console.log(props.str, "props");
+
   return (
     <div>
-      Icon11111111
+      Icon
       <br />
       {props.children}
       <br />
-      {props.num}
+      {num}
     </div>
   );
 };

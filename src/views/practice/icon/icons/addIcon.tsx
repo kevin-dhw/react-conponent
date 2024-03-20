@@ -1,7 +1,7 @@
-import CreateIcon from "../createIcon";
-
-const AddIcon = CreateIcon({
-  content: <div>666</div>,
+import createIcon from "../createIcon";
+const addIcon = createIcon({
+  content: <div>11123</div>,
   num: 100,
+  str: "string",
 });
-export default AddIcon;
+export default addIcon;
