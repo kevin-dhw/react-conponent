@@ -1,18 +1,19 @@
 import { PropsWithChildren, RefObject, createContext, useRef } from "react";
-import Card, { CardRef } from ".";
+import Cart, { CartRef } from ".";
 
-interface NumContextType {
-  cardRef?: RefObject<CardRef>;
+interface CartContextType {
+  cartRef?: RefObject<CartRef>;
 }
-const NumContext = createContext<NumContextType>({});
-const NumProvider = (props: PropsWithChildren) => {
+const CartContext = createContext<CartContextType>({});
+
+function CardProvider(props: PropsWithChildren) {
   const { children } = props;
-  const cardRef = useRef<CardRef>(null);
+  const cartRef = useRef<CartRef>(null);
   return (
-    <NumContext.Provider value={{ cardRef }}>
-      <Card ref={cardRef}></Card>
+    <CartContext.Provider value={{ cartRef }}>
+      <Cart ref={cartRef}></Cart>
       {children}
-    </NumContext.Provider>
+    </CartContext.Provider>
   );
-};
-export { NumContext, NumProvider };
+}
+export { CartContext, CardProvider };

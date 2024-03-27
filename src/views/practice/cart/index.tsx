@@ -1,39 +1,30 @@
-import React from "react";
-import useNum from "./hooks/useNum";
-
-export interface CardProps {
+import React, { useImperativeHandle } from "react";
+import useCart from "./hooks/useCard";
+export interface CartProps {
   num?: number;
 }
-export interface CardRef {
-  changeNum?: (num: number) => void;
+export interface CartRef {
+  changeNum: (num: CartProps["num"]) => void;
 }
-const InnerCard: React.ForwardRefRenderFunction<CardRef, CardProps> = (
+const InnerCart: React.ForwardRefRenderFunction<CartRef, CartProps> = (
   props,
   ref
 ) => {
-  const { num, changeNum } = useNum(props.num!);
+  const { number, changeNum } = useCart(props.num);
+
   const handleChange = () => {
     changeNum(10);
   };
-  if ("current" in ref!) {
-    ref.current = {
-      changeNum,
-    };
-  }
-  // useImperativeHandle(ref, () => {
-  //   return {
-  //     changeNum,
-  //   };
-  // });
+  useImperativeHandle(ref, () => {
+    return { changeNum };
+  });
   return (
     <div>
-      Card
-      <button onClick={handleChange}>改变num</button>
+      Cart {number}
       <br />
-      {num}
+      <button onClick={handleChange}>改变</button>
     </div>
   );
 };
-// const Card = React.forwardRef(InnerCard);
-const Card = React.forwardRef(InnerCard);
-export default Card;
+const Cart = React.forwardRef(InnerCart);
+export default Cart;

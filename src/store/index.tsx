@@ -1,5 +1,6 @@
 import useCountStore from "./counter";
 import useInfoStore from "./info";
 import useCartStore from "./cart";
+import useCardStore from "./card";
 
-export { useCountStore, useInfoStore, useCartStore };
+export { useCardStore, useCountStore, useInfoStore, useCartStore };

@@ -1,20 +1,20 @@
 import { useStore } from "zustand";
-import { useCartStore } from "../../../store";
+import { useCardStore } from "../../../store";
 
 const TestZustand = () => {
-  const { num, fn } = useStore(useCartStore);
+  const { num, fn, fun } = useStore(useCardStore);
   const handleChange = () => {
-    fn(200);
+    fn(100);
   };
-  useCartStore.subscribe((state) => {
-    console.log(state, "1");
-    console.log(useCartStore.getState(), "2");
-  });
+  const handleChange2 = () => {
+    fun(100);
+  };
   return (
     <div>
       TestZustand {num}
       <br />
       <button onClick={handleChange}>修改</button>
+      <button onClick={handleChange2}>修改2</button>
     </div>
   );
 };

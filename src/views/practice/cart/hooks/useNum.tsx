@@ -1,14 +1,11 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../context";
 
-const useNum = (props: number) => {
-  const [num, setNum] = useState(props);
-
-  return {
-    num,
-    changeNum: (num: number) => {
-      setNum(num * 10);
-      console.log(num);
-    },
-  };
-};
+function useNum() {
+  const { cartRef } = useContext(CartContext);
+  if (!cartRef) {
+    throw new Error("11");
+  }
+  return cartRef.current;
+}
 export default useNum;

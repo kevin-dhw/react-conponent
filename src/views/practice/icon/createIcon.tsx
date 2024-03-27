@@ -1,14 +1,20 @@
-import { PropsWithChildren } from "react";
+import React from "react";
 import Icon, { IconProps } from ".";
 
-interface CreateOptions extends PropsWithChildren<IconProps> {
-  content?: any;
-  num?: 100;
+interface creatIconOptions extends React.PropsWithChildren<IconProps> {
+  content?: React.ReactNode;
 }
 
-const CreateIcon = (options: CreateOptions) => {
+const createIcon = (options: creatIconOptions) => {
+  const { content } = options;
   return () => {
-    return <Icon {...options}>{options.content}</Icon>;
+    return (
+      <div>
+        coreateIcon
+        <br />
+        <Icon {...options}>{content}</Icon>
+      </div>
+    );
   };
 };
-export default CreateIcon;
+export default createIcon;
