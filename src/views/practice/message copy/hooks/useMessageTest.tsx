@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { ConfigTestContext } from "../configProvider";
-import { MessageTestRef } from "..";
+import { MessageContext } from "../configProvider";
+// import { MessageRef } from "..";
 
-function useMessageTest(): MessageTestRef {
-  const { messageTestRef } = useContext(ConfigTestContext);
-  // if (!messageTestRef) {
-  //   throw new Error("请在最外层添加configProvider组件");
-  // }
-  return messageTestRef!.current!;
-}
-export default useMessageTest;
+const useMessage = () => {
+  const { messageRef } = useContext(MessageContext);
+  if (!messageRef) {
+    throw new Error("最外层请包裹 MessageProvider");
+  }
+  return messageRef.current;
+};
+export default useMessage;
