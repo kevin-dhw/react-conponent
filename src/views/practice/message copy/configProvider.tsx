@@ -1,18 +1,18 @@
 import { PropsWithChildren, RefObject, createContext, useRef } from "react";
-import MessageTest, { MessageTestRef } from ".";
+import Message, { MessageRef } from ".";
 
-interface ConfigProviderProps {
-  messageTestRef?: RefObject<MessageTestRef>;
+interface MessageContextType {
+  messageRef?: RefObject<MessageRef>;
 }
-const ConfigTestContext = createContext<ConfigProviderProps>({});
-function ConfigTestProvider(props: PropsWithChildren) {
+const MessageContext = createContext<MessageContextType>({});
+const MessageProvider = (props: PropsWithChildren) => {
   const { children } = props;
-  const messageTestRef = useRef<MessageTestRef>(null);
+  const messageRef = useRef<MessageRef>(null);
   return (
-    <ConfigTestContext.Provider value={{ messageTestRef }}>
-      <MessageTest ref={messageTestRef}></MessageTest>
+    <MessageContext.Provider value={{ messageRef }}>
+      <Message ref={messageRef}></Message>
       {children}
-    </ConfigTestContext.Provider>
+    </MessageContext.Provider>
   );
-}
-export { ConfigTestProvider, ConfigTestContext };
+};
+export { MessageContext, MessageProvider };

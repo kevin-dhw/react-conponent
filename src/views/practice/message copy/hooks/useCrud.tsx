@@ -1,23 +1,13 @@
-import { useState } from "react";
-import { ItemType } from "..";
-function useCrud(defaultList: ItemType[]) {
-  const [list, setList] = useState([...defaultList]);
+import React from "react";
+
+const useCrud = (defaultValue: number) => {
+  const [num, setNum] = React.useState(defaultValue);
 
   return {
-    list,
-    add: (item: ItemType) => {
-      setList([...list, item]);
-    },
-    del: (id: number) => {
-      setList((list) => {
-        const newList = list.filter((item) => item.id !== id);
-        return newList;
-      });
-    },
-    update: () => {
-      console.log("更新");
+    num,
+    changeNum: (number: number) => {
+      setNum(number * 10);
     },
   };
-}
-
+};
 export default useCrud;

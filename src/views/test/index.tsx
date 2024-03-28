@@ -1,23 +1,23 @@
-import Cart from "../practice/cart";
-import { useRef } from "react";
-import { CartRef } from "../practice/cart";
+import { useState } from "react";
+import Sapce from "../practice/space basic";
+import { SpaceProvider } from "../practice/space basic/context";
 
 function Test() {
-  const cartRef = useRef<CartRef>(null);
-
-  const handleRef = () => {
-    cartRef.current?.changeNum?.(1000);
+  const [size, setSize] = useState("init");
+  const changeSize = () => {
+    setSize("big");
   };
   return (
     <>
       test
       {/* <br />
       <button>更新</button> */}
-      <button>修改1111</button>
+      <button onClick={changeSize}>改变size</button>
       <br />
-      <Cart ref={cartRef} num={10} />
+      <SpaceProvider space={{ size }}>
+        <Sapce />
+      </SpaceProvider>
       <br />
-      <button onClick={handleRef}>获取</button>
     </>
   );
 }

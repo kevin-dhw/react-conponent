@@ -1,67 +1,38 @@
-import React, { useState } from "react";
+import React, { useImperativeHandle } from "react";
 import useCrud from "./hooks/useCrud";
-
-export interface ItemType {
-  id: number;
-  name: string;
-  age: number;
+export interface MessageProps {
+  num?: number;
 }
-export interface ListProps {
-  list?: ItemType[];
+export interface MessageRef {
+  changeNum: (number: number) => void;
 }
-export interface MessageTestRef {
-  add: (item: ItemType) => void;
-  del: (id: number) => void;
-}
-const InnerMessageTest: React.ForwardRefRenderFunction<
-  MessageTestRef,
-  ListProps
-> = (props, ref) => {
-  const { list, add, del } = useCrud(props.list!);
-  const [value, setValue] = useState("");
-  const handleChange = (e: any) => {
-    setValue(e.target.value);
-  };
-  const handleAdd = () => {
-    const id = list.length + 1;
-    add({
-      id,
-      age: 30,
-      name: value,
-    });
-  };
-  const handleDel = (id: number) => {
-    del(id);
-  };
+const InnerMessage: React.ForwardRefRenderFunction<MessageRef, MessageProps> = (
+  props,
+  ref
+) => {
+  // const { num } = props;
+  const { num, changeNum } = useCrud(props.num!);
   if ("current" in ref!) {
     ref.current = {
-      add,
-      del,
+      changeNum,
     };
   }
   // useImperativeHandle(ref, () => {
-  //   return {
-  //     add,
-  //     del,
-  //   };
+  //   return { changeNum };
   // });
   return (
     <div>
-      MessageTest
+      Message {num}
       <br />
-      <input onChange={(e) => handleChange(e)}></input>
-      <button onClick={handleAdd}>添加</button>
-      <br />
-      {list.map((item) => {
-        return (
-          <div key={item.id}>
-            {item.name}
-            <button onClick={() => handleDel(item.id)}>删除</button>
-          </div>
-        );
-      })}
+      <button
+        onClick={() => {
+          changeNum(num + 10);
+        }}
+      >
+        修改
+      </button>
     </div>
   );
 };
-const MessageTest = React.forwardRef(InnerMessageTest);
-export default MessageTest;
+const Message = React.forwardRef(InnerMessage);
+export default Message;
