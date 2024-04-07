@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import Popover from "../Popover/learn/popover";
+import Popover from "..";
 
 function Test() {
   const popoverCotent = () => {

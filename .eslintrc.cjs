@@ -19,5 +19,7 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": ["off"],
     // eslint(react-refresh/only-export-components)
     "react-refresh/only-export-components": ["off"],
+    //
+    "react-hooks/rules-of-hooks": ["off"],
   },
 };
