@@ -1,31 +1,15 @@
 // import { useState } from "react";
-import Popover from "../Popover/learn/popover";
+import Upload from "../Upload/upload";
 
 function Test() {
-  const popoverCotent = () => {
-    return <div>测试contrent</div>;
-  };
-  function handleBtn(num: number) {
-    console.log(num);
-  }
-  const popoverCotent2 = <div>测试contrent</div>;
+  console.log(111);
   return (
     <>
       test
       {/* <br />
       <button>更新</button> */}
-      <Popover
-        handleBtn={handleBtn}
-        content={popoverCotent}
-        content2={popoverCotent2}
-        position="bottom"
-        renderContent={() => {
-          return <>renderContent函数内容</>;
-        }}
-      >
-        <div>children里面的内容</div>
-      </Popover>
       <br />
+      <Upload />
     </>
   );
 }
