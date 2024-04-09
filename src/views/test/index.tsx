@@ -1,15 +1,13 @@
 // import { useState } from "react";
-import Upload from "../Upload/upload";
+import TailWind from "../practice/tailwind";
 
 function Test() {
   console.log(111);
   return (
     <>
-      test
-      {/* <br />
-      <button>更新</button> */}
-      <br />
-      <Upload />
+      {/* test
+      <br /> */}
+      <TailWind />
     </>
   );
 }
