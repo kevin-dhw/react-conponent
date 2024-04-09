@@ -1,15 +1,16 @@
 // import { useState } from "react";
-import TailWind from "../practice/tailwind";
+// import React from "react";
+import TodoList from "../TodoList/todoList";
 
-function Test() {
+const Test = () => {
   console.log(111);
   return (
     <>
       {/* test
       <br /> */}
-      <TailWind />
+      <TodoList />
     </>
   );
-}
+};
 
 export default Test;
