@@ -1,6 +1,4 @@
-// import { useState } from "react";
-// import React from "react";
-import TodoList from "../TodoList/todoList";
+import Spring from "../Spring/spring";
 
 const Test = () => {
   console.log(111);
@@ -8,7 +6,7 @@ const Test = () => {
     <>
       {/* test
       <br /> */}
-      <TodoList />
+      <Spring />
     </>
   );
 };
