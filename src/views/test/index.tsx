@@ -1,4 +1,4 @@
-import Spring from "../Spring/spring";
+import UseGesture from "../UseGesture/useGesture";
 
 const Test = () => {
   console.log(111);
@@ -6,7 +6,7 @@ const Test = () => {
     <>
       {/* test
       <br /> */}
-      <Spring />
+      <UseGesture />
     </>
   );
 };
