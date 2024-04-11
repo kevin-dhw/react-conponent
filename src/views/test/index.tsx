@@ -1,11 +1,11 @@
-import SpringGroup from "../SpringGroup/springgroup";
+import Upload from "../Upload/upload";
 
 const Test = () => {
   return (
     <>
       {/* test
       <br /> */}
-      <SpringGroup />
+      <Upload />
       <br />
       <div></div>
     </>
