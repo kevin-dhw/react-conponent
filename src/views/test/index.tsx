@@ -1,12 +1,13 @@
-import UseGesture from "../UseGesture/useGesture";
+import Springs from "../Spring/spring2";
 
 const Test = () => {
-  console.log(111);
   return (
     <>
       {/* test
       <br /> */}
-      <UseGesture />
+      <Springs />
+      <br />
+      <div></div>
     </>
   );
 };
