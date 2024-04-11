@@ -1,11 +1,11 @@
-import Springs from "../Spring/spring2";
+import SpringGroup from "../SpringGroup/springgroup";
 
 const Test = () => {
   return (
     <>
       {/* test
       <br /> */}
-      <Springs />
+      <SpringGroup />
       <br />
       <div></div>
     </>
