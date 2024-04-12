@@ -1,6 +1,6 @@
 import React, { useRef, ChangeEvent, PropsWithChildren } from "react";
 import axios from "axios";
-import "./index.sass";
+// import "./index.scss";
 
 export interface UploadProps extends PropsWithChildren {
   action?: string;

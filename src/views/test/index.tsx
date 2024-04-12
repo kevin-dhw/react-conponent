@@ -1,13 +1,10 @@
-import Upload from "../Upload/upload";
+// import Form from "../Form/form";
 
 const Test = () => {
   return (
     <>
-      {/* test
-      <br /> */}
-      <Upload />
       <br />
-      <div></div>
+      {/* <Form /> */}
     </>
   );
 };
