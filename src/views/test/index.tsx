@@ -1,13 +1,10 @@
-import SpringGroup from "../SpringGroup/springgroup";
+// import Form from "../Form/form";
 
 const Test = () => {
   return (
     <>
-      {/* test
-      <br /> */}
-      <SpringGroup />
       <br />
-      <div></div>
+      {/* <Form /> */}
     </>
   );
 };

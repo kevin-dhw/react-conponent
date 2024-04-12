@@ -21,5 +21,6 @@ module.exports = {
     "react-refresh/only-export-components": ["off"],
     //
     "react-hooks/rules-of-hooks": ["off"],
+    "@typescript-eslint/ban-types": ["off"],
   },
 };
