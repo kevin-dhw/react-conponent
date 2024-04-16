@@ -6,7 +6,7 @@ export interface FormProps extends React.HtmlHTMLAttributes<HTMLFormElement> {
   className?: string;
   style?: CSSProperties;
   onFinish?: (values: Record<string, any>) => void;
-  onFinishFaild?: (errors: Record<string, any>) => void;
+  onFinishFailed?: (errors: Record<string, any>) => void;
   initialValues?: Record<string, any>;
   children?: React.ReactNode;
 }
@@ -15,7 +15,7 @@ const Form = (props: FormProps) => {
     className,
     style,
     onFinish,
-    onFinishFaild,
+    onFinishFailed,
     initialValues,
     ...others
   } = props;
@@ -41,7 +41,7 @@ const Form = (props: FormProps) => {
       .filter(Boolean);
 
     if (errorList.length) {
-      onFinishFaild?.(errors.current);
+      onFinishFailed?.(errors.current);
     } else {
       onFinish?.(values);
     }
