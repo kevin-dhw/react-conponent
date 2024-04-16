@@ -1,10 +1,12 @@
-// import Form from "../Form/form";
+import React from "react";
+import Spring from "../../views/practice/spring";
 
-const Test = () => {
+const Test: React.FC = () => {
   return (
     <>
+      Spring
       <br />
-      {/* <Form /> */}
+      <Spring />
     </>
   );
 };

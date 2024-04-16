@@ -1,23 +1,23 @@
 import React, {
   CSSProperties,
-  ReactNode,
+  ReactElement,
   useState,
   useContext,
   useEffect,
   ChangeEvent,
 } from "react";
+import FormContext from "./formContext";
 import Schema from "async-validator";
-import formContext from "./formContext";
 import classNames from "classnames";
 
 export interface ItemProps {
   className?: string;
   style?: CSSProperties;
-  label?: ReactNode;
+  label?: React.ReactNode;
   name?: string;
   valuePropName?: string;
   rules?: Array<Record<string, any>>;
-  children?: React.ReactElement;
+  children?: ReactElement;
 }
 
 const getValueFromEvent = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,24 +27,32 @@ const getValueFromEvent = (e: ChangeEvent<HTMLInputElement>) => {
   } else if (target.type === "radio") {
     return target.value;
   }
-
   return target.value;
 };
 
 const Item = (props: ItemProps) => {
   const { className, label, children, style, name, valuePropName, rules } =
     props;
+
   if (!name) return children;
 
   const [value, setValue] = useState<string | number | boolean>();
   const [error, setError] = useState("");
-  const { onValueChange, values, validateRegister } = useContext(formContext);
+
+  const { onValueChange, values, validateRegister } = useContext(FormContext);
 
   useEffect(() => {
     if (value !== values?.[name]) {
       setValue(values?.[name]);
     }
   }, [values, values?.[name]]);
+
+  const propsName: Record<string, any> = {};
+  if (valuePropName) {
+    propsName[valuePropName] = value;
+  } else {
+    propsName.value = value;
+  }
 
   const handleValidate = (value: any) => {
     let errorMsg = null;
@@ -73,17 +81,9 @@ const Item = (props: ItemProps) => {
 
     return errorMsg;
   };
-
   useEffect(() => {
     validateRegister?.(name, () => handleValidate(value));
   }, [value]);
-
-  const propsName: Record<string, any> = {};
-  if (valuePropName) {
-    propsName[valuePropName] = value;
-  } else {
-    propsName.value = value;
-  }
 
   const childEle =
     React.Children.toArray(children).length > 1
@@ -94,7 +94,6 @@ const Item = (props: ItemProps) => {
             const value = getValueFromEvent(e);
             setValue(value);
             onValueChange?.(name, value);
-
             handleValidate(value);
           },
         });
