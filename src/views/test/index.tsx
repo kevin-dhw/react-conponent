@@ -1,12 +1,12 @@
 import React from "react";
-import Spring from "../../views/practice/spring";
+import Echarts from "../Aself/echarts";
 
 const Test: React.FC = () => {
   return (
     <>
       Spring
       <br />
-      <Spring />
+      <Echarts></Echarts>
     </>
   );
 };
