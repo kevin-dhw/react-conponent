@@ -1,12 +1,12 @@
 import React from "react";
-import UseMountedPage from "../UseHook/useHook/useMountedPage";
+import Echarts from "../Aself/echarts";
 
 const Test: React.FC = () => {
   return (
     <>
       Spring
       <br />
-      <UseMountedPage></UseMountedPage>
+      <Echarts></Echarts>
     </>
   );
 };
