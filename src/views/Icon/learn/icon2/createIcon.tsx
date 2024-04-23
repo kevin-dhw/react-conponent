@@ -1,13 +1,14 @@
-import Icon, { IconProps } from ".";
 import React from "react";
+import Icon, { IconProps } from ".";
 
-interface CreateProps extends IconProps {
+interface CreateOptions extends IconProps {
   content?: React.ReactNode;
 }
 
-const CreateIcon = (props: CreateProps) => {
+const CreateIcon = (props: CreateOptions) => {
+  const { content } = props;
   return () => {
-    return <Icon {...props}>{props.content}</Icon>;
+    return <Icon {...props}>{content}</Icon>;
   };
 };
 export default CreateIcon;

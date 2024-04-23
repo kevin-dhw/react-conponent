@@ -1,19 +1,21 @@
-import { PropsWithChildren, createContext } from "react";
+import { createContext, PropsWithChildren } from "react";
 
 interface SpaceContextType {
   space?: {
     size?: string;
   };
 }
-const SpaceType = createContext<SpaceContextType>({
+const SpaceContext = createContext<SpaceContextType>({
   space: {
-    size: "small",
+    size: "small1234",
   },
 });
 interface SpaceProviderType extends PropsWithChildren<SpaceContextType> {}
 
 function SpaceProvider(props: SpaceProviderType) {
   const { space, children } = props;
-  return <SpaceType.Provider value={{ space }}>{children}</SpaceType.Provider>;
+  return (
+    <SpaceContext.Provider value={{ space }}>{children}</SpaceContext.Provider>
+  );
 }
-export { SpaceType, SpaceProvider };
+export { SpaceContext, SpaceProvider };
