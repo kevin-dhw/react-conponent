@@ -26,7 +26,6 @@ const Tabs = () => {
     },
   ]);
   const [num, setNum] = useState(0);
-
   const handleClick = (index: number) => {
     console.log(index);
     setNum(index);
