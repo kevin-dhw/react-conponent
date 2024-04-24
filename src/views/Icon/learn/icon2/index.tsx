@@ -7,13 +7,13 @@ export interface IconProps extends PropsWithChildren {
 const Icon: React.FC<IconProps> = (props) => {
   const { num, children } = props;
   return (
-    <>
-      Icon
-      <br />
-      {children}
+    <div>
+      icon
       <br />
       {num}
-    </>
+      <br />
+      {children}
+    </div>
   );
 };
 export default Icon;

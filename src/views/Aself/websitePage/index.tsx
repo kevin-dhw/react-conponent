@@ -1,8 +1,11 @@
+import Header from "./components/header";
+import Content from "./components/content";
+
 const WebsitePage = () => {
   return (
     <div>
-      WebsitePage
-      <br />
+      <Header />
+      <Content />
     </div>
   );
 };

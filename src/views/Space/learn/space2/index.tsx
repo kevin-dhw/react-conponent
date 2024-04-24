@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { SpaceType } from "./context";
+import { SpaceContext } from "./context";
 
 const Space = () => {
-  const { space } = useContext(SpaceType);
+  const { space } = useContext(SpaceContext);
   return (
     <>
       Space
