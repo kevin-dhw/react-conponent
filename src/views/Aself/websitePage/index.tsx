@@ -5,7 +5,7 @@ const WebsitePage = () => {
   return (
     <div>
       <Header />
-      <Content />
+      <Content style={{ marginTop: "20px" }} />
     </div>
   );
 };

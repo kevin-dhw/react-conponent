@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import headerContext from "../context/headerContext";
+import { Header2Context } from "../context/header2Context";
+
 const Header = () => {
+  const { left, right } = useContext(headerContext);
+  const { header2 } = useContext(Header2Context);
   return (
     <>
       <div className=" flex justify-between mx-8 my-5">
@@ -20,6 +26,12 @@ const Header = () => {
           </div>
         </div>
         <div>进入工作空间</div>
+      </div>
+      <div>
+        测试useContex数据 ： {left} : {right}
+      </div>
+      <div>
+        测试useContex2数据 ： {header2?.left2} : {header2?.right2}
       </div>
     </>
   );
