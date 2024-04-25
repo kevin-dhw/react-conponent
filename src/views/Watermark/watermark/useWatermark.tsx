@@ -79,7 +79,7 @@ function useWatermark(params: WatermarkOptions) {
 
   useEffect(() => {
     drawWatermark();
-  }, [options]);
+  }, [options.getContainer]);
 
   return {
     generateWatermark: (newOptions: Partial<WatermarkOptions>) => {
