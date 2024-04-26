@@ -1,6 +1,7 @@
 import WebsitePage from "../Aself/websitePage";
 import HeaderContext from "../Aself/websitePage/context/headerContext";
 import { Headr2Provider } from "../Aself/websitePage/context/header2Context";
+import Memo from "../practice/memo";
 
 const Test: React.FC = () => {
   return (
@@ -16,6 +17,8 @@ const Test: React.FC = () => {
           <WebsitePage />
         </HeaderContext.Provider>
       </Headr2Provider>
+      <br />
+      <Memo />
     </>
   );
 };
