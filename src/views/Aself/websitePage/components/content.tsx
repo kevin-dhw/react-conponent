@@ -33,8 +33,6 @@ const items = [
 const Content: React.FC<ContextProps> = (props) => {
   const { style } = props;
   const [num, setNum] = useState(0);
-  // const cs = ;
-
   const handleChange = (e: any, index: number) => {
     console.log(e);
     setNum((num) => {
@@ -71,10 +69,10 @@ const Content: React.FC<ContextProps> = (props) => {
                 index > 3 ? "mt-3" : ""
               )}
             >
-              <div>图片</div>
+              <div className=" m-auto">图片</div>
               <div>
                 <div className=" text-gray-400 ml-2">{item.title}</div>
-                <div className=" flex justify-between m-2">
+                <div className=" flex justify-between m-2 border-t-2 pt-2">
                   <div>{item.date}</div>
                   <div>{item.count}</div>
                 </div>
