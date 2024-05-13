@@ -28,7 +28,7 @@ const Bottom = () => {
       </div>
       <div className=" my-3 flex justify-between">
         <span>全部</span>
-        <span>
+        <span>other.tsx
           <Checkbox />
         </span>
       </div>
