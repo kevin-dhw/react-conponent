@@ -1,19 +1,37 @@
 import React from "react";
-import MessageGrandSon from "./grandSon";
 import { MessageProps } from "..";
 
-export interface MessageSonProps extends MessageProps {
-  sonNun?: number;
+interface MessageSonProps extends MessageProps {}
+export interface MessageSonRef {
+  sonMethods: () => void;
 }
 
-const MessageSon: React.FC<MessageSonProps> = (props) => {
-  const { sonNun } = props;
+const InnerMessageSon: React.ForwardRefRenderFunction<
+  MessageSonRef,
+  MessageSonProps
+> = (props, ref) => {
+  const { getSonData } = props;
+  const sendData = () => {
+    getSonData?.({ name: "jack" });
+  };
+  const sonMethods = () => {
+    console.log("sonMethods");
+  };
+  if ("current" in ref!) {
+    ref.current = {
+      sonMethods,
+    };
+  }
+  // useImperativeHandle(ref, () => {
+  //   return { sonMethods };
+  // });
   return (
     <div>
       MessageSon
-      <MessageGrandSon {...props} grandNum={1000} />
-      {sonNun}
+      <br />
+      <button onClick={sendData}>向父发数据</button>
     </div>
   );
 };
+const MessageSon = React.forwardRef(InnerMessageSon);
 export default MessageSon;
