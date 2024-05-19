@@ -1,34 +1,33 @@
 import MessageSon from "./components/son";
-import React, { ForwardRefRenderFunction, useImperativeHandle } from "react";
-
+import React from "react";
+import useMessageSon from "./hooks/useMessageSon";
+import { MessageSonProvider } from "./context/sonContext";
 export interface MessageProps {
-  num?: number;
-  str?: string;
-}
-export interface MessageRef {
-  update?: () => number;
+  getSonData?: (sonData: Record<string, any>) => void;
 }
 
-const InnerMessage: ForwardRefRenderFunction<MessageRef, MessageProps> = (
-  props,
-  ref
-) => {
-  const { num, str } = props;
-
-  useImperativeHandle(ref, () => {
-    return {
-      update() {
-        return 100;
-      },
-    };
-  });
+const Message: React.FC = () => {
+  const message = useMessageSon();
+  const getSonData = (sonData: Record<string, any>) => {
+    console.log(sonData);
+  };
+  const handleRef = () => {
+    message.sonMethods();
+  };
   return (
     <div>
       messageRef
-      <MessageSon {...props} sonNun={100} />
-      {num} {str}
+      <MessageSon getSonData={getSonData} />
+      <br />
+      <button onClick={handleRef}>content里面的ref</button>
     </div>
   );
 };
-const Message = React.forwardRef(InnerMessage);
-export default Message;
+const OutMessage = () => {
+  return (
+    <MessageSonProvider>
+      <Message />
+    </MessageSonProvider>
+  );
+};
+export default OutMessage;
