@@ -1,7 +1,9 @@
 import { CalendarProps } from "../../calendar";
 import { Dayjs } from "dayjs";
 
-interface MonthCalendarProps extends CalendarProps {}
+interface MonthCalendarProps extends CalendarProps {
+  selectHandler?: (date: Dayjs) => void;
+}
 // function getAllDays(date: Dayjs) {
 //   // 一个月多少天
 //   const dayInMonth = date.daysInMonth();
@@ -38,14 +40,38 @@ function getAllDays(date: Dayjs) {
   return daysInfo;
 }
 // 准备渲染数据
-function renderDays(days: Array<{ date: Dayjs; currentMonth: boolean }>) {
+function renderDays(
+  days: Array<{ date: Dayjs; currentMonth: boolean }>,
+  dateRender: MonthCalendarProps["dateRender"],
+  dateInnerContent: MonthCalendarProps["dateRender"],
+  selectHandler: MonthCalendarProps["selectHandler"]
+) {
   const rows = [];
   for (let i = 0; i < 6; i++) {
     const row = [];
     for (let j = 0; j < 7; j++) {
       const item = days[i * 7 + j];
       row[j] = (
-        <div className="calendar-month-body-cell">{item.date.date()}</div>
+        <div
+          className={
+            "calendar-month-body-cell " +
+            (item.currentMonth ? "calendar-month-body-cell-current" : "")
+          }
+          onClick={() => selectHandler?.(item.date)}
+        >
+          {dateRender ? (
+            dateRender(item.date)
+          ) : (
+            <div className="calendar-month-body-cell-date">
+              <div className="calendar-month-body-cell-date-value">
+                {item.date.date()}
+              </div>
+              <div className="calendar-month-body-cell-date-content">
+                {dateInnerContent?.(item.date)}
+              </div>
+            </div>
+          )}
+        </div>
       );
     }
     rows.push(row);
@@ -57,9 +83,11 @@ function renderDays(days: Array<{ date: Dayjs; currentMonth: boolean }>) {
 
 function MonthCalendar(props: MonthCalendarProps) {
   console.log(props.value, "value");
+  const { dateRender, dateInnerContent, selectHandler } = props;
 
   const weekList = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
-  // 获取所有数据
+
+  // 获取所有数据E
   const allDays = getAllDays(props.value!);
   return (
     <div className="calendar-month">
@@ -70,7 +98,9 @@ function MonthCalendar(props: MonthCalendarProps) {
           </div>
         ))}
       </div>
-      <div className="calendar-month-body">{renderDays(allDays)}</div>
+      <div className="calendar-month-body">
+        {renderDays(allDays, dateRender, dateInnerContent, selectHandler)}
+      </div>
     </div>
   );
 }
