@@ -3,14 +3,25 @@ import Canlendar from "../Calendar/calendar basic copy";
 import dayjs from "dayjs";
 
 const Test: React.FC = () => {
-  console.log(dayjs("2024-11-1"));
-  console.log(dayjs("2024-11-1").daysInMonth());
-  console.log(dayjs("2024-11-1").startOf("month").format("YYYY-MM-DD"));
-  console.log(dayjs("2024-11-1").endOf("month").format("YYYY-MM-DD"));
   const value = dayjs("2024-11-1");
+
   return (
     <>
-      <Canlendar value={value} />
+      <Canlendar
+        value={value}
+        onChange={(value) => {
+          console.log(value, "onchange");
+        }}
+        dateInnerContent={(value) => {
+          return (
+            <div>
+              <p style={{ backgroundColor: "yellowgreen", height: "50px" }}>
+                {value.format("YYYY/MM/DD")}
+              </p>
+            </div>
+          );
+        }}
+      />
       <br />
     </>
   );
