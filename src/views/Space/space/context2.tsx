@@ -6,6 +6,7 @@ export interface ConfigContextType2 {
     size?: SizeType;
   };
 }
+// 123
 export const ConfigContextType2 = React.createContext<ConfigContextType2>({});
 
 interface ConfigProviderProps extends PropsWithChildren<ConfigContextType2> {}
