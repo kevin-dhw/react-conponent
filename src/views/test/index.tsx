@@ -1,13 +1,39 @@
 import React from "react";
-import Canlendar from "../Calendar/calendar basic copy";
-import dayjs from "dayjs";
+import useComponentsTab from "../../store/componentsTab";
+import classNames from "classnames";
+// import Canlendar from "../Calendar/calendar basic copy";
+// import dayjs from "dayjs";
 
 const Test: React.FC = () => {
-  const value = dayjs("2024-11-1");
+  // const value = dayjs("2024-11-1");
+  const { tabs, changeTab } = useComponentsTab();
+  const curTab = tabs.find((item) => item.isSelected)?.lable;
 
   return (
     <>
-      <Canlendar
+      <div className=" flex h-screen">
+        <div className=" w-[150px] pt-[20px] mx-[10px] bg-white">
+          {tabs.map((item, index) => {
+            return (
+              <div
+                onClick={() => {
+                  changeTab(index);
+                }}
+                key={index}
+                className={classNames(
+                  " p-[10px] flex rounded-sm mb-[10px]",
+                  item.isSelected && " bg-blue-200 text-white"
+                )}
+              >
+                <div className=" m-auto ">{item.lable}</div>
+              </div>
+            );
+          })}
+        </div>
+        <div className=" w-2 bg-slate-400"></div>
+        <div className=" mt-[30px] ml-[10px]">right</div>
+      </div>
+      {/* <Canlendar
         value={value}
         onChange={(value) => {
           console.log(value, "onchange");
@@ -21,8 +47,7 @@ const Test: React.FC = () => {
             </div>
           );
         }}
-      />
-      <br />
+      /> */}
     </>
   );
 };
