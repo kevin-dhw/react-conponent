@@ -5,7 +5,6 @@ import Calendar from "./component/calendar";
 import Icon from "./component/icon";
 import Space from "./component/space";
 import Watermark from "./component/watermark";
-import Message from "./component/message";
 import OnBoarding from "./component/onBoarding";
 import TodoList from "./component/todoList";
 
@@ -40,7 +39,6 @@ const Test: React.FC = () => {
           {curTab === "icon" && <Icon />}
           {curTab === "space" && <Space />}
           {curTab === "watermark" && <Watermark />}
-          {curTab === "message" && <Message />}
           {curTab === "onBoarding" && <OnBoarding />}
           {curTab === "todoList" && <TodoList />}
         </div>
