@@ -30,10 +30,10 @@ const useComponentsTab = create<State & Action>((set) => ({
       lable: "watermark",
       isSelected: false,
     },
-    {
-      lable: "message",
-      isSelected: false,
-    },
+    // {
+    //   lable: "message",
+    //   isSelected: false,
+    // },
     {
       lable: "onBoarding",
       isSelected: false,

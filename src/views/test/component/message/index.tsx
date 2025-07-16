@@ -1,11 +1,31 @@
-import React from "react";
+import { ConfigProvider } from "./Message/ConfigProvider";
+import { useMessage } from "./Message/useMessage";
 
-const Message: React.FC = () => {
+function Aaa() {
+  const message = useMessage();
+
   return (
-    <div>
-      Message
-      <span></span>
-    </div>
+    <button
+      onClick={() => {
+        console.log("1233");
+        message.add({
+          content: "请求成功",
+        });
+      }}
+    >
+      成功
+    </button>
   );
-};
-export default Message;
+}
+
+function App() {
+  return (
+    <ConfigProvider>
+      <div>
+        <Aaa></Aaa>
+      </div>
+    </ConfigProvider>
+  );
+}
+
+export default App;
