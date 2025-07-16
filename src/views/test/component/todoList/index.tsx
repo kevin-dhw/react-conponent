@@ -1,11 +1,14 @@
-import React from "react";
+import { TodoList } from "./TodoList";
 
-const TodoList: React.FC = () => {
+function App() {
   return (
     <div>
-      TodoList
-      <span></span>
+      <span className=" font-bold text-[20px]">
+        put the new item to the gap between the items
+      </span>
+      <TodoList></TodoList>
     </div>
   );
-};
-export default TodoList;
+}
+
+export default App;
