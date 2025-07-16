@@ -8,11 +8,8 @@ import Watermark from "./component/watermark";
 import Message from "./component/message";
 import OnBoarding from "./component/onBoarding";
 import TodoList from "./component/todoList";
-// import Canlendar from "../Calendar/calendar basic copy";
-// import dayjs from "dayjs";
 
 const Test: React.FC = () => {
-  // const value = dayjs("2024-11-1");
   const { tabs, changeTab } = useComponentsTab();
   const curTab = tabs.find((item) => item.isSelected)?.lable;
 
@@ -49,21 +46,6 @@ const Test: React.FC = () => {
         </div>
         <div className=" mt-[10px] mr-[10px]">Kevin Du components</div>
       </div>
-      {/* <Canlendar
-        value={value}
-        onChange={(value) => {
-          console.log(value, "onchange");
-        }}
-        dateInnerContent={(value) => {
-          return (
-            <div>
-              <p style={{ backgroundColor: "yellowgreen", height: "50px" }}>
-                {value.format("YYYY/MM/DD")}
-              </p>
-            </div>
-          );
-        }}
-      /> */}
     </>
   );
 };
