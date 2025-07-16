@@ -1,6 +1,13 @@
 import React from "react";
 import useComponentsTab from "../../store/componentsTab";
 import classNames from "classnames";
+import Calendar from "./component/calendar";
+import Icon from "./component/icon";
+import Space from "./component/space";
+import Watermark from "./component/watermark";
+import Message from "./component/message";
+import OnBoarding from "./component/onBoarding";
+import TodoList from "./component/todoList";
 // import Canlendar from "../Calendar/calendar basic copy";
 // import dayjs from "dayjs";
 
@@ -31,7 +38,16 @@ const Test: React.FC = () => {
           })}
         </div>
         <div className=" w-2 bg-slate-400"></div>
-        <div className=" mt-[30px] ml-[10px]">right</div>
+        <div className=" mt-[30px] ml-[10px] flex-1">
+          {curTab === "calendar" && <Calendar />}
+          {curTab === "icon" && <Icon />}
+          {curTab === "space" && <Space />}
+          {curTab === "watermark" && <Watermark />}
+          {curTab === "message" && <Message />}
+          {curTab === "onBoarding" && <OnBoarding />}
+          {curTab === "todoList" && <TodoList />}
+        </div>
+        <div className=" mt-[10px] mr-[10px]">Kevin Du components</div>
       </div>
       {/* <Canlendar
         value={value}
