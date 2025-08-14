@@ -34,7 +34,7 @@ const Test: React.FC = () => {
           })}
         </div>
         <div className=" w-2 bg-slate-400"></div>
-        <div className=" mt-[30px] ml-[10px] flex-1">
+        <div className=" mt-[30px] ml-[10px] flex-1 h-[calc(100%-40px)] overflow-scroll">
           {curTab === "calendar" && <Calendar />}
           {curTab === "icon" && <Icon />}
           {curTab === "space" && <Space />}
